@@ -43,7 +43,21 @@ int print_cent(va_list args)
  */
 int print_str(va_list args)
 {
-	return (0);
+	int i;
+	int count = 0;
+	char *str;
+
+	str = va_arg(args, char*);
+	if (str == NULL)
+	{
+		return (-1);
+	}
+	while (str[i])
+	{
+		count = write(1, &str[i], 1);
+		i += 1;
+	}
+	return (count);
 }
 
 
@@ -65,10 +79,10 @@ int print_d(va_list args)
 	{
 		my_array[i] = (d % 10);
 		d = (d / 10);
-		 if (d == 0)
-			 break;
-		 else
-			 i++;
+		if (d == 0)
+			break;
+		else
+			i++;
 	}
 	for (i; i >= 0; i--)
 	{
@@ -85,7 +99,28 @@ int print_d(va_list args)
  */
 int print_i(va_list args)
 {
-	return (0);
+	int i = 0;
+	int count = 0;
+	int my_array[10];
+	int numb;
+	char x[1];
+
+	numb = va_arg(args, int);
+	while (numb != 0)
+	{
+		my_array[i] = (numb % 10);
+		numb = (numb / 10);
+		if (numb == 0)
+			break;
+		else
+			i++;
+	}
+	for (i; i >= 0; i--)
+	{
+		x[0] = ('0' + my_array[i]);
+		count += write(1, x, 1);
+	}
+	return (count);
 }
 
 
