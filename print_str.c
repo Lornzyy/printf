@@ -21,8 +21,8 @@ int print_str(va_list args)
 	while (s[i])
 	{
 		count = write(1, &s[i], 1);
-		i = i + 1;
 	}
+	i = i + 1;
 	return (count);
 }
 

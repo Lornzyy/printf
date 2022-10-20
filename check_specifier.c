@@ -23,8 +23,11 @@ int (*check_specifier(const char *format))(va_list)
 
 	for (i = 0; (my_array[i].t) != NULL; i++)
 	{
-		/*if the array return a format return a fn pointing to what to do with the format */
-		if (*(my_array[i].t) == (*format))
+		/*
+		 * if the array return a format
+		 * return a fn pointing to what to do with the format
+		 */
+		if (*(my_array[i].t) == *format)
 		{
 			return (my_array[i].f); /* to return the function*/
 		}

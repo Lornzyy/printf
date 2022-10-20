@@ -22,11 +22,11 @@ typedef struct func
 int _write(char);
 int _printf(const char *format, ...);
 int (*check_specifier(const char *))(va_list);
+
 int print_char(va_list);
 int print_str(va_list);
 int print_cent(va_list);
 int print_d(va_list);
 int print_i(va_list);
-char *convert(unsigned int num, int base);
 
 #endif /* PRINTF_H */
