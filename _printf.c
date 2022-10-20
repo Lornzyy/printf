@@ -15,35 +15,23 @@ int _printf(const char *format, ...)
 	int (*f)(va_list);
 
 	va_start(args, format);
-
-	/* if format is null exit with -1*/
 	if (format == NULL)
 		return (-1);
 
-	/*prints everything */
+	if (args == NULL)
+		return (-1);
+
 	while (format[i])
 	{
-		/* check for % sign */
 		if (format[i] != '%')
 		{
 			value = write(1, &format[i], 1);
-			/**
-			 * enters the loop and prints the character it meets
-			 * value return what write returns to
-			 * store the value which should be an int
-			 */
 			count += value;
 			i++;
 			continue;
 		}
 		if (format[i] == '%')
 		{
-			/**
-			 * whenever we encounter the loop we should look at the next character
-			 * declare a function that will capture
-			 * the next index do something within itself, return funvtion
-			 * taking  the variadic fn specified and send it to count
-			 */
 			f = check_specifier(&format[i + 1]);
 			if (f != NULL)
 			{
@@ -65,10 +53,8 @@ int _printf(const char *format, ...)
 				continue;
 			}
 		}
-	
 	}
 	va_end(args);
-	return (count);
 
 }
 
