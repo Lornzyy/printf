@@ -8,7 +8,9 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0, value = 0;
+	int i = 0;
+	int count = 0;
+	int value = 0;
 	va_list args;
 	int (*f)(va_list);
 
