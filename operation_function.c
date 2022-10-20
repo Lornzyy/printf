@@ -30,7 +30,8 @@ int print_char(va_list args)
 
 int print_cent(va_list args)
 {
-	return (0);
+	write(1, "%", 1);
+	return (1);
 }
 
 /**
